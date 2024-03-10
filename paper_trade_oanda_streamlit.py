@@ -23,10 +23,10 @@ def trade():
 
 def stop_active_bot():
     #
-    print(f"The stop instance task has run at {datetime.now()}")
+    print(f"The stop active bot task has run at {datetime.now()}")
     files = [f for f in os.listdir('./active_bots') if os.path.isfile(f)]
     for f in files:
-        # do something
+        print(f"active_bots folder contain {f}")
         tokenize = f.split('_')
         if int(tokenize[-1] > 1):
             os.remove(f)
@@ -36,5 +36,5 @@ if __name__ == "__main__":
     trade()
     #scheduler = BlockingScheduler(timezone='US/Pacific')
     scheduler = BlockingScheduler()
-    scheduler.add_job(stop_active_bot, 'interval', min=30)
+    scheduler.add_job(stop_active_bot, 'interval', min=1)
     scheduler.start()
