@@ -2,3 +2,5 @@
 .spacefile
 .venv
 .active_bots
+.ChangeLog
+.vscode
