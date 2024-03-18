@@ -11,7 +11,8 @@ at.configure(verbosity=2,
              notification_provider="telegram",
              home_currency="CAD",
              allow_dancing_bears=True,
-             show_plot=True)
+             show_plot=True,
+             max_workers=1)
 
 at.add_strategy("ema_crossover")
 
