@@ -12,7 +12,7 @@ at.configure(verbosity=2,
              home_currency="CAD",
              allow_dancing_bears=True,
              show_plot=True,
-             max_workers=1)
+             max_workers=2)
 
 at.add_strategy("ema_crossover")
 
