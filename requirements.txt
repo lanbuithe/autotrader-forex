@@ -1,4 +1,4 @@
-autotrader==1.1.2
+autotrader==1.0.0
 v20
 ccxt
 python-telegram-bot==13.15
