@@ -8,8 +8,7 @@ at.configure(verbosity=2,
              broker="oanda", 
              notify=1,
              notification_provider="telegram",
-             home_currency="CAD",
-             allow_dancing_bears=True,
+             home_currency="CAD", 
              show_plot=True)
 
 at.add_strategy("ema_crossover")
