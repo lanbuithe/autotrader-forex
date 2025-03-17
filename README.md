@@ -1,1 +1,6 @@
 AUTOTRADER FOREX
+
+R
+autotrader==0.12.1
+v20==3.0.25.0
+python-telegram-bot==13.15
