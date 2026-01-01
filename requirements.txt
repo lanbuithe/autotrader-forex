@@ -1,3 +1,3 @@
 autotrader==1.1.2
-v20==3.0.15.1
+v20==3.0.14.0
 ccxt-download==0.4.1
