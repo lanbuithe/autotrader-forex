@@ -1,29 +1,22 @@
-import pandas as pd
 from finta import TA
 from autotrader import Order
-from datetime import datetime
-from autotrader.strategy import Strategy
 from autotrader.indicators import crossover
-from autotrader.brokers.broker import Broker
 
 
-class EMAcrossOver(Strategy):
+class EMAcrossOver:
     """EMA Crossover example strategy.
 
     Entry signals are on crosses of two EMA's, with a stop-loss
     set using the ATR.
     """
 
-    def __init__(
-        self, parameters: dict, instrument: str, broker: Broker, *args, **kwargs
-    ) -> None:
+    def __init__(self, parameters, data, instrument):
         """Define all indicators used in the strategy."""
         self.name = "EMA Crossover Strategy"
         self.instrument = instrument
+        self.data = data
         self.parameters = parameters
-        self.broker = broker
 
-    def create_plotting_indicators(self, data: pd.DataFrame):
         # Construct indicators dict for plotting
         self.indicators = {
             "Fast EMA": {
@@ -36,12 +29,12 @@ class EMAcrossOver(Strategy):
             },
         }
 
-    def generate_features(self, data: pd.DataFrame):
+    def generate_features(self, data):
         """Calculates the indicators required to run the strategy."""
         # EMA's
         slow_ema = TA.EMA(data, self.parameters["slow_ema"])
         fast_ema = TA.EMA(data, self.parameters["fast_ema"])
-
+        
         crossovers = crossover(fast_ema, slow_ema)
 
         # ATR for stops
@@ -49,15 +42,8 @@ class EMAcrossOver(Strategy):
 
         return crossovers, atr
 
-    def generate_signal(self, dt: datetime):
+    def generate_signal(self, data):
         """Define strategy to determine entry signals."""
-        # Get OHLCV data
-        data = self.broker.get_candles(self.instrument, granularity="1h", count=300)
-        if len(data) < 300:
-            # This was previously a check in AT
-            return None
-
-        # Calculate indicators
         crossovers, atr = self.generate_features(data)
 
         RR = self.parameters["RR"]
@@ -69,7 +55,6 @@ class EMAcrossOver(Strategy):
             order = Order(
                 instrument=self.instrument,
                 direction=1,
-                size=10,
                 stop_loss=stop,
                 take_profit=take,
             )
@@ -82,13 +67,12 @@ class EMAcrossOver(Strategy):
             order = Order(
                 instrument=self.instrument,
                 direction=-1,
-                size=10,
                 stop_loss=stop,
                 take_profit=take,
             )
 
         else:
-            # No signal
-            order = None
+            # No signal - create blank order
+            order = Order()
 
         return order
