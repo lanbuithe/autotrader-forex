@@ -6,7 +6,7 @@ from myautotrader import MyAutoTrader
 at = MyAutoTrader()
 
 at.configure(home_currency="CAD",
-             verbosity=1, 
+             verbosity=3, 
              feed="oanda", 
              broker="myoanda", 
              notify=1,
