@@ -1,11 +1,12 @@
 from autotrader import AutoTrader
+import myoanda
 
 # Create AutoTrader instance, configure it, and run paper mode
 at = AutoTrader()
 
 at.configure(verbosity=2, 
              feed="oanda", 
-             broker="oanda", 
+             broker="myoanda", 
              notify=1,
 #             notification_provider="telegram",
              home_currency="CAD",
