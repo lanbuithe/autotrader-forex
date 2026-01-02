@@ -11,8 +11,6 @@ PARAMETERS:
   # Exit level parameters
   RR: 1.5
 
-WATCHLIST: ['ETH-USD',]
-            # 'EURJPY=X',
-            # 'EURAUD=X',
-            # 'AUDJPY=X']
+#WATCHLIST: ['CAD_JPY', 'EUR_USD', 'AUD_USD', 'GBP_USD', 'EUR_JPY']
+WATCHLIST: ['EUR_USD', 'AUD_USD', 'GBP_USD']
             
