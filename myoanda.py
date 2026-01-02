@@ -435,6 +435,7 @@ class Broker(Broker):
         times = []
         close_price, high_price, low_price, open_price, volume = [], [], [], [], []
 
+        #DIY
         #if self._allow_dancing_bears:
             # Allow all candles
         #    for candle in candles:
