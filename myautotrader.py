@@ -33,7 +33,7 @@ from autotrader.utilities import (
 )
 
 
-class AutoTrader:
+class MyAutoTrader:
     """A Python-Based Development Platform For Automated Trading Systems.
 
     Methods
