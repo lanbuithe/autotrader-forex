@@ -13,8 +13,8 @@ at.configure(home_currency="CAD",
              notification_provider="telegram",
 #             allow_dancing_bears=True,
 #             environment="live",
-             mode='continuous', 
-             update_interval='1h',
+             mode="continuous"
+             update_interval="1h",
              show_plot=True)
 
 at.add_strategy("ema_crossover")
