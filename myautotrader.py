@@ -21,7 +21,8 @@ from datetime import datetime, timedelta, timezone
 from typing import Callable, Optional, Literal, Union
 from autotrader.brokers.ccxt import Broker as CCXTBroker
 from autotrader.brokers.virtual import Broker as VirtualBroker
-from autotrader.utilities import (
+#from autotrader.utilities import (
+from myutilities import (
     read_yaml,
     get_broker_config,
     DataStream,
