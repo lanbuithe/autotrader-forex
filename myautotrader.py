@@ -21,6 +21,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Callable, Optional, Literal, Union
 from autotrader.brokers.ccxt import Broker as CCXTBroker
 from autotrader.brokers.virtual import Broker as VirtualBroker
+#DIY
 #from autotrader.utilities import (
 from myutilities import (
     read_yaml,
@@ -1605,6 +1606,7 @@ class MyAutoTrader:
             config["logging_options"] = self._logger_kwargs
 
             # Import relevant module
+            #DIY
             #broker_module = importlib.import_module(f"autotrader.brokers.{broker_name}")
             broker_module = importlib.import_module(f"{broker_name}")
 
