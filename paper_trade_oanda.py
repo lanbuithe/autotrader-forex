@@ -11,9 +11,9 @@ at.configure(home_currency="CAD",
              broker="myoanda", 
              notify=1,
              notification_provider="telegram",
-#             allow_dancing_bears=True,
-#             environment="live",
-             mode="continuous",
+#ERROR             allow_dancing_bears=True,
+#ERROR             environment="live",
+#ERROR             mode="continuous",
              update_interval="1h",
              show_plot=True)
 
