@@ -1605,7 +1605,8 @@ class MyAutoTrader:
             config["logging_options"] = self._logger_kwargs
 
             # Import relevant module
-            broker_module = importlib.import_module(f"autotrader.brokers.{broker_name}")
+            #broker_module = importlib.import_module(f"autotrader.brokers.{broker_name}")
+            broker_module = importlib.import_module(f"{broker_name}")
 
             # Create broker
             broker: Broker = broker_module.Broker(config)
