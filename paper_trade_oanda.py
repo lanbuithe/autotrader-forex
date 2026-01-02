@@ -6,7 +6,7 @@ at = AutoTrader()
 
 at.configure(verbosity=2, 
              feed="oanda", 
-             broker="oanda", 
+             broker="myoanda", 
              notify=1,
 #             notification_provider="telegram",
              home_currency="CAD",
