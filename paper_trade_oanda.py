@@ -13,7 +13,7 @@ at.configure(home_currency="CAD",
              notification_provider="telegram",
 #             allow_dancing_bears=True,
 #             environment="live",
-             mode="continuous"
+             mode="continuous",
              update_interval="1h",
              show_plot=True)
 
