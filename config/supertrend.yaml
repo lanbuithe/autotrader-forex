@@ -6,4 +6,5 @@ PARAMETERS:
   ema_period: 200
   candle_tol: 10
   RR: 2.0
-WATCHLIST: ['EURUSD=X']
+#WATCHLIST: ['CAD_JPY', 'EUR_USD', 'AUD_USD', 'GBP_USD', 'EUR_JPY']
+WATCHLIST: ['EUR_USD', 'AUD_USD', 'GBP_USD']
