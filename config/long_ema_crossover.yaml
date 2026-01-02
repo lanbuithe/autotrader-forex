@@ -8,4 +8,5 @@ PARAMETERS:
   RR: 1
 
 # Define pairs to monitor
-WATCHLIST: ['AAPL']
+#WATCHLIST: ['CAD_JPY', 'EUR_USD', 'AUD_USD', 'GBP_USD', 'EUR_JPY']
+WATCHLIST: ['EUR_USD', 'AUD_USD', 'GBP_USD']
