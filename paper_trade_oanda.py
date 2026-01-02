@@ -1,8 +1,8 @@
 from autotrader import AutoTrader
-import myoanda
+import myoanda, myautotrader
 
 # Create AutoTrader instance, configure it, and run paper mode
-at = AutoTrader()
+at = MyAutoTrader()
 
 at.configure(verbosity=2, 
              feed="oanda", 
