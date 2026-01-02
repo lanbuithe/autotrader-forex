@@ -12,7 +12,7 @@ at.configure(verbosity=2,
              notification_provider="telegram",
              home_currency="CAD",
 #             allow_dancing_bears=True,
-             environment="live",
+#             environment="live",
              show_plot=True)
 
 at.add_strategy("ema_crossover")
