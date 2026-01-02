@@ -14,7 +14,7 @@ at.configure(home_currency="CAD",
 #ERROR             allow_dancing_bears=True,
 #ERROR             environment="live",
 #ERROR             mode="continuous",
-             update_interval="1h",
+#ERROR             update_interval="1h",
              show_plot=True)
 
 at.add_strategy("ema_crossover")
