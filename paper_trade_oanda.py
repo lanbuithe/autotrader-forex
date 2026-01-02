@@ -1,5 +1,5 @@
 from autotrader import AutoTrader
-import myoanda, myautotrader
+import Broker, MyAutoTrader
 
 # Create AutoTrader instance, configure it, and run paper mode
 at = MyAutoTrader()
