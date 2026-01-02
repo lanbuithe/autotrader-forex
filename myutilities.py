@@ -203,6 +203,7 @@ def get_broker_config(
         elif broker.lower() == "virtual":
             config = {}
 
+        #DIY
         elif broker.lower() == "myoanda":
             api_key = "LIVE" if environment.lower() == "live" else "PRACTICE"
             oanda_conf = global_config["OANDA"]
