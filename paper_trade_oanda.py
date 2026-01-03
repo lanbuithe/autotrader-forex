@@ -18,5 +18,6 @@ at.configure(home_currency="CAD",
              show_plot=True)
 
 at.add_strategy("ema_crossover")
+at.add_strategy("long_ema_crossover")
 
 at.run()
