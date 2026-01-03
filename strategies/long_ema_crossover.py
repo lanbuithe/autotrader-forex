@@ -8,7 +8,7 @@ from autotrader.brokers.broker import Broker
 
 
 class LongEMAcrossOver(Strategy):
-    """EMA Crossover example strategy."""
+    """Long EMA Crossover example strategy."""
 
     def __init__(
         self,
