@@ -1,7 +1,7 @@
 NAME: 'SuperTrend Scanner'
 MODULE: 'supertrend'
 CLASS: 'SuperTrendScan'
-INTERVAL: '1d'
+INTERVAL: '4h' # 1d
 
 PARAMETERS:
   ema_period: 200
