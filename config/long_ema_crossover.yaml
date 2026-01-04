@@ -1,7 +1,7 @@
 NAME: 'Long EMA Crossover'
 MODULE: 'long_ema_crossover'
 CLASS: 'LongEMAcrossOver'
-INTERVAL: '45m'
+INTERVAL: '1h'
 RISK_PC: 1.5
 
 PARAMETERS:
