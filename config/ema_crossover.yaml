@@ -1,14 +1,14 @@
 NAME: 'EMA Crossover'
 MODULE: 'ema_crossover'
 CLASS: 'EMAcrossOver'
-INTERVAL: '15m' # 30m 1h
+INTERVAL: '1h' # 30m 1h
 PERIOD: 300
-RISK_PC: 2
+RISK_PC: 1.5
 SIZING: 'risk'
 PARAMETERS:
   slow_ema: 50
   fast_ema: 21
-  RR: 2.0
+  RR: 1.5
 
 # Define pairs to monitor
 #WATCHLIST: ['CAD_JPY', 'EUR_USD', 'AUD_USD', 'GBP_USD', 'EUR_JPY']
