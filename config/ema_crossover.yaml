@@ -5,6 +5,7 @@ INTERVAL: '30m' # 30m 1h
 PERIOD: 300
 RISK_PC: 1.5
 SIZING: 'risk'
+
 PARAMETERS:
   slow_ema: 50
   fast_ema: 21
