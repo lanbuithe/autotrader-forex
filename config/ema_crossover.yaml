@@ -1,7 +1,7 @@
 NAME: 'EMA Crossover'
 MODULE: 'ema_crossover'
 CLASS: 'EMAcrossOver'
-INTERVAL: '30m' # 30m 1h
+INTERVAL: '30m' # 30m 1h 1d
 PERIOD: 300
 RISK_PC: 1.5
 SIZING: 'risk'
