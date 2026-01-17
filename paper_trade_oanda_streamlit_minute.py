@@ -2,6 +2,7 @@ from autotrader import AutoTrader
 from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime
 import os
+from myautotrader import MyAutoTrader
 
 def trade():
     # Create AutoTrader instance, configure it, and run paper mode
