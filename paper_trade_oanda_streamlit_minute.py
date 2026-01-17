@@ -6,16 +6,24 @@ import os
 def trade():
     # Create AutoTrader instance, configure it, and run paper mode
     at = AutoTrader()
-    at.configure(verbosity=2, 
-                feed="oanda", 
-                broker="oanda", 
-                mode="continuous", 
-                notify=1,
-                notification_provider="telegram",
-                home_currency="CAD",
-                allow_dancing_bears=True,
-                show_plot=True)
+
+    at.configure(home_currency="CAD",
+             verbosity=3, 
+             feed="oanda", 
+             broker="myoanda", 
+             notify=1,
+             notification_provider="telegram",
+#ERROR             allow_dancing_bears=True,
+#ERROR             environment="live",
+#ERROR             mode="continuous",
+#ERROR             update_interval="1h",
+             show_plot=True)
+
     at.add_strategy("ema_crossover")
+    at.add_strategy("long_ema_crossover")
+    at.add_strategy("macd")
+    at.add_strategy("supertrend")
+
     at.run()
 
 def stop_active_bot():
@@ -33,9 +41,10 @@ def stop_active_bot():
 
 def start_scheduler():
     scheduler = BlockingScheduler(timezone='America/Vancouver')
-    # interval hours, minutes, seconds
-    scheduler.add_job(trade, 'interval', minutes=1)
-    scheduler.add_job(stop_active_bot, 'interval', minutes=1)
+    # interval hours=, minutes=, seconds=
+    interval = 15
+    scheduler.add_job(trade, 'interval', minutes=interval)
+    scheduler.add_job(stop_active_bot, 'interval', minutes=interval)
     scheduler.start()
 
 if __name__ == "__main__":
