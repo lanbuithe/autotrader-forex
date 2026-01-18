@@ -31,14 +31,17 @@ def stop_active_bot():
     #
     print(f"The stop active bot task has run at {datetime.now()}")
     base_dir = './active_bots'
-    files = [f for f in os.listdir(base_dir) if f.startswith('autotrader_instance')]
-    for f in files:
-        print(f"{base_dir} folder contain {f}")
-        tokenize = f.split('_')
-        full_path = os.path.join(base_dir, f)
-        if int(tokenize[-1]) > 1:
-            os.remove(full_path)
-            print(f"Deleted {full_path}")
+    try:
+        files = [f for f in os.listdir(base_dir) if f.startswith('autotrader_instance')]
+        for f in files:
+            print(f"{base_dir} folder contain {f}")
+            tokenize = f.split('_')
+            full_path = os.path.join(base_dir, f)
+            if int(tokenize[-1]) > 1:
+                os.remove(full_path)
+                print(f"Deleted {full_path}")
+    except FileNotFoundError as e:
+        print(f"{base_dir} not found")
 
 def start_scheduler():
     scheduler = BlockingScheduler(timezone='America/Vancouver')
