@@ -1,8 +1,8 @@
+import http.server
+import socketserver
 from autotrader import AutoTrader
 #from myoanda import Broker
 from myautotrader import MyAutoTrader
-import http.server
-import socketserver
 
 # Create AutoTrader instance, configure it, and run paper mode
 at = MyAutoTrader()
