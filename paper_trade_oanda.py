@@ -5,7 +5,7 @@ import socketserver
 from myautotrader import MyAutoTrader
 
 ###
-PORT = 80
+PORT = 8000
 
 Handler = http.server.SimpleHTTPRequestHandler
 
