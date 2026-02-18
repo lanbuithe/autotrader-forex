@@ -1,8 +1,18 @@
 import http.server
 import socketserver
-from autotrader import AutoTrader
+#from autotrader import AutoTrader
 #from myoanda import Broker
 from myautotrader import MyAutoTrader
+
+###
+PORT = 80
+
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print(f"Serving at port {PORT}")
+    # Start the server and keep it running until you stop the script
+    httpd.serve_forever()
 
 # Create AutoTrader instance, configure it, and run paper mode
 at = MyAutoTrader()
@@ -26,13 +36,5 @@ at.add_strategy("supertrend")
 
 at.run()
 
-###
-PORT = 80
 
-Handler = http.server.SimpleHTTPRequestHandler
-
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print(f"Serving at port {PORT}")
-    # Start the server and keep it running until you stop the script
-    httpd.serve_forever()
 
