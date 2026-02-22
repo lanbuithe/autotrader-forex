@@ -6,6 +6,7 @@ from autotrader.strategy import Strategy
 from autotrader.indicators import crossover
 from autotrader.brokers.broker import Broker
 from autotrader.utilities import get_logger
+import logging
 
 
 class EMAcrossOver(Strategy):
@@ -23,9 +24,25 @@ class EMAcrossOver(Strategy):
         self.instrument = instrument
         self.parameters = parameters
         self.broker = broker
+
+        # Initialise logger type
+        self.logger: logging.Logger
+        # Create logger kwargs
+        verbosity = 3
+        logger_kwargs = logger_kwargs if logger_kwargs is not None else {}
+        verbosity_map = {
+            0: logging.ERROR,
+            1: logging.WARNING,
+            2: logging.INFO,
+            3: logging.DEBUG,
+        }
+        logger_kwargs["stdout_level"] = verbosity_map.get(verbosity, logging.INFO)
+
+        # Save logger kwargs for other classes
+        # TODO - make verbosity control print out only, and logging separate
+        self._logger_kwargs = logger_kwargs
         
-        self._logger_kwargs: dict
-        # Create autobot logger
+        # Create logger
         self.logger = get_logger(name="EMAcrossOver", **self._logger_kwargs)
 
     def create_plotting_indicators(self, data: pd.DataFrame):
