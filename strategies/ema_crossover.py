@@ -98,7 +98,7 @@ class EMAcrossOver(Strategy):
         else:
             # No signal
             self.logger.debug(
-                'No signal)
+                'No signal so set order is none')
             )
             order = None
 
