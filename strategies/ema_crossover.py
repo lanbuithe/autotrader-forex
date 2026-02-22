@@ -43,7 +43,7 @@ class EMAcrossOver(Strategy):
         self._logger_kwargs = logger_kwargs
         
         # Create logger
-        self.logger = get_logger(name="EMAcrossOver", **self._logger_kwargs)
+        self.logger = get_logger(name="EMACrossOver", **self._logger_kwargs)
 
     def create_plotting_indicators(self, data: pd.DataFrame):
         # Construct indicators dict for plotting
