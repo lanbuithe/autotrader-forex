@@ -29,7 +29,7 @@ class EMAcrossOver(Strategy):
         self.logger: logging.Logger
         # Create logger kwargs
         verbosity = 3
-        logger_kwargs = logger_kwargs if logger_kwargs is not None else {}
+        logger_kwargs = {}
         verbosity_map = {
             0: logging.ERROR,
             1: logging.WARNING,
