@@ -74,7 +74,7 @@ class EMAcrossOver(Strategy):
     def generate_signal(self, dt: datetime):
         """Define strategy to determine entry signals."""
         # Get OHLCV data
-        data = self.broker.get_candles(self.instrument, granularity="1d", count=300)
+        data = self.broker.get_candles(self.instrument, granularity="1h", count=300)
         if len(data) < 300:
             # This was previously a check in AT
             self.logger.debug(
