@@ -78,7 +78,7 @@ class EMAcrossOver(Strategy):
         if len(data) < 300:
             # This was previously a check in AT
             self.logger.debug(
-                f"OHLCV data length {len(data)}"
+                f"OHLCV data length is {len(data)}"
             )
             return None
 
