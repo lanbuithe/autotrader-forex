@@ -120,7 +120,7 @@ class EMAcrossOver(Strategy):
             order = None
 
         self.logger.debug(
-            f"Order {order}"
+            f"Order value {order}"
         )
 
         return order
