@@ -4,7 +4,7 @@ OANDA:
   LIVE_API: "api-fxtrade.oanda.com"
   PORT: 443
   PRACTICE_ACCESS_TOKEN: "e6696b70e5999c8a25ebe7032d980b45-cb5a04b8ec6ac25f7b160eb1708a77a4"
-  PRACTICE_API: "stream-fxpractice.oanda.com"
+  PRACTICE_API: "api-fxpractice.oanda.com"
 TELEGRAM:
   api_key: "8383809530:AAHryeDuYOkZ8FZpKEsrHjObPluXIz1NR5A"
   chat_id: "8533345624"
