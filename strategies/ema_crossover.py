@@ -5,6 +5,7 @@ from datetime import datetime
 from autotrader.strategy import Strategy
 from autotrader.indicators import crossover
 from autotrader.brokers.broker import Broker
+from autotrader.utilities import get_logger
 
 
 class EMAcrossOver(Strategy):
@@ -22,6 +23,10 @@ class EMAcrossOver(Strategy):
         self.instrument = instrument
         self.parameters = parameters
         self.broker = broker
+        
+        self._logger_kwargs: dict
+        # Create autobot logger
+        self.logger = get_logger(name="EMAcrossOver", **self._logger_kwargs)
 
     def create_plotting_indicators(self, data: pd.DataFrame):
         # Construct indicators dict for plotting
@@ -55,6 +60,9 @@ class EMAcrossOver(Strategy):
         data = self.broker.get_candles(self.instrument, granularity="1h", count=300)
         if len(data) < 300:
             # This was previously a check in AT
+            self.logger.debug(
+                f"OHLCV data length {len(data)}"
+            )
             return None
 
         # Calculate indicators
@@ -89,6 +97,13 @@ class EMAcrossOver(Strategy):
 
         else:
             # No signal
+            self.logger.debug(
+                'No signal)
+            )
             order = None
+
+        self.logger.debug(
+            f"Order {order}"
+        )
 
         return order
