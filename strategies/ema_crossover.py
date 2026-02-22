@@ -78,7 +78,7 @@ class EMAcrossOver(Strategy):
         if len(data) < 300:
             # This was previously a check in AT
             self.logger.debug(
-                f"OHLCV data length is {len(data)}"
+                f"OHLCV data length is {len(data)} so return none"
             )
             return None
 
@@ -115,7 +115,7 @@ class EMAcrossOver(Strategy):
         else:
             # No signal
             self.logger.debug(
-                'No signal so set order is none'
+                "No signal so set order is none"
             )
             order = None
 
