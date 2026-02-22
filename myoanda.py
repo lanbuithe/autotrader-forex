@@ -457,6 +457,14 @@ class Broker(Broker):
         #            open_price.append(float(candle.mid.o))
         #            volume.append(float(candle.volume))
 
+        for candle in candles:
+            times.append(candle.time)
+            close_price.append(float(candle.mid.c))
+            high_price.append(float(candle.mid.h))
+            low_price.append(float(candle.mid.l))
+            open_price.append(float(candle.mid.o))
+            volume.append(float(candle.volume))
+
         dataframe = pd.DataFrame(
             {
                 "Open": open_price,
