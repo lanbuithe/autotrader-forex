@@ -2,6 +2,7 @@ from autotrader import AutoTrader
 from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime
 import os
+from urllib.request import urlopen
 
 def trade():
     # Create AutoTrader instance, configure it, and run paper mode
@@ -32,11 +33,19 @@ def stop_active_bot():
             os.remove(full_path)
             print(f"Deleted {full_path}")
 
+def scrap():
+    url = "https://autotrader-forex.streamlit.app/"
+    page = urlopen(url)
+    html_bytes = page.read()
+    html = html_bytes.decode("utf-8")
+    print(html)
+
 def start_scheduler():
     scheduler = BlockingScheduler(timezone='America/Vancouver')
     # interval hours, minutes, seconds
     scheduler.add_job(trade, 'interval', minutes=10)
     #scheduler.add_job(stop_active_bot, 'interval', minutes=15)
+    scheduler.add_job(scrap, 'interval', minutes=5)
     scheduler.start()
 
 if __name__ == "__main__":
