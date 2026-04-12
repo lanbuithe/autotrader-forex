@@ -11,5 +11,5 @@ PARAMETERS:
   RR: 2.0
 
 # Define pairs to monitor
-#WATCHLIST: ['CAD_JPY', 'CAD_SGD', 'EUR_USD']
-WATCHLIST: ['CAD_JPY']
+#WATCHLIST: ['CAD_JPY']
+WATCHLIST: ['EUR_USD', 'AUD_USD', 'GBP_USD', 'USD_CAD', 'USD_JPY']
