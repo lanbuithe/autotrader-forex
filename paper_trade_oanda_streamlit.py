@@ -14,7 +14,8 @@ def trade():
                 notification_provider="telegram",
                 home_currency="CAD",
                 allow_dancing_bears=True,
-                show_plot=True)
+                show_plot=True,
+                allow_duplicate_bars=True)
     at.add_strategy("ema_crossover")
     at.run()
 
