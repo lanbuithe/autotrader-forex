@@ -35,8 +35,8 @@ def stop_active_bot():
 def start_scheduler():
     scheduler = BlockingScheduler(timezone='America/Vancouver')
     # interval hours, minutes, seconds
-    scheduler.add_job(trade, 'interval', minutes=15)
-    #scheduler.add_job(stop_active_bot, 'interval', minutes=30)
+    scheduler.add_job(trade, 'interval', minutes=10)
+    #scheduler.add_job(stop_active_bot, 'interval', minutes=15)
     scheduler.start()
 
 if __name__ == "__main__":
