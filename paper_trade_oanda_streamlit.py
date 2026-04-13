@@ -66,7 +66,7 @@ def start_scheduler():
     # interval hours, minutes, seconds
     scheduler.add_job(trade, 'interval', minutes=10)
     #scheduler.add_job(stop_active_bot, 'interval', minutes=15)
-    scheduler.add_job(scrap, 'interval', minutes=5)
+    scheduler.add_job(scrap, 'interval', hours=1)
     scheduler.start()
 
 if __name__ == "__main__":
