@@ -1,11 +1,12 @@
 NAME: 'SuperTrend Scanner'
-MODULE: 'supertrend'
+MODULE: 'alt_supertrend'
 CLASS: 'SuperTrendScan'
-INTERVAL: '4h' # 1d
-
+INTERVAL: '1d'
+PERIOD: 200
+RISK_PC: 1.5
+SIZING: 'risk'
 PARAMETERS:
   ema_period: 200
   candle_tol: 10
-  RR: 2.0
   
 WATCHLIST: ['EUR_USD', 'AUD_USD', 'GBP_USD', 'USD_CAD', 'USD_JPY']
