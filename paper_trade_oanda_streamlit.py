@@ -7,7 +7,7 @@ import urllib3
 def trade():
     # Create AutoTrader instance, configure it, and run paper mode
     at = AutoTrader()
-    at.configure(verbosity=2, 
+    at.configure(verbosity=3, 
                 feed="oanda", 
                 broker="oanda", 
                 mode="continuous", 
