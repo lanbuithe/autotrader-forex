@@ -1,14 +1,14 @@
 NAME: 'EMA Crossover'
 MODULE: 'ema_crossover'
 CLASS: 'EMAcrossOver'
-INTERVAL: '5m'  # 1h
+INTERVAL: '1h'  # 1h
 PERIOD: 300
-RISK_PC: 2
+RISK_PC: 1
 SIZING: 'risk'
 PARAMETERS:
   slow_ema: 50
   fast_ema: 20
-  RR: 2.0
+  RR: 1.5
 
 # Define pairs to monitor
 #WATCHLIST: ['CAD_JPY']
