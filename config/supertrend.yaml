@@ -1,5 +1,5 @@
 NAME: 'SuperTrend Scanner'
-MODULE: 'alt_supertrend'
+MODULE: 'supertrend'
 CLASS: 'SuperTrendScan'
 INTERVAL: '1d'
 PERIOD: 200
