@@ -17,7 +17,12 @@ def trade():
                 allow_dancing_bears=True,
                 show_plot=True,
                 allow_duplicate_bars=True)
+    
     at.add_strategy("ema_crossover")
+    at.add_strategy("long_ema_crossover")
+    at.add_strategy("macd")
+    at.add_strategy("supertrend")
+    
     at.run()
 
 def stop_active_bot():
