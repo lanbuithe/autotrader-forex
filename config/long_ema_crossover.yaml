@@ -1,9 +1,11 @@
-NAME: 'Long EMA Crossover'
+NAME: 'EMA Crossover'
 MODULE: 'long_ema_crossover'
 CLASS: 'LongEMAcrossOver'
 INTERVAL: '1h'
-#RISK_PC: 1.5
-
+PERIOD: 300
+RISK_PC: 90
+SIZING: 'risk'
+INCLUDE_BROKER: True
 PARAMETERS:
   slow_ema: 20
   fast_ema: 10
