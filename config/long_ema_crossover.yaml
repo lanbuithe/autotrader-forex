@@ -1,4 +1,4 @@
-NAME: 'EMA Crossover'
+NAME: 'Long EMA Crossover'
 MODULE: 'long_ema_crossover'
 CLASS: 'LongEMAcrossOver'
 INTERVAL: '1h'
