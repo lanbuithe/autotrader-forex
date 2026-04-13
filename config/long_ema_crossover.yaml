@@ -9,7 +9,7 @@ INCLUDE_BROKER: True
 PARAMETERS:
   slow_ema: 20
   fast_ema: 10
-  RR: 2
+  RR: 1.5
 
 # Define pairs to monitor
 WATCHLIST: ['EUR_USD', 'AUD_USD', 'GBP_USD', 'USD_CAD', 'USD_JPY']
