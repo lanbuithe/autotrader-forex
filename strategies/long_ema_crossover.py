@@ -35,12 +35,12 @@ class LongEMAcrossOver:
         crossovers = crossover(fast_ema, slow_ema)
         return crossovers
 
-    def generate_signal(self, dt: datetime):
+    def generate_signal(self, data):
         """Define strategy to determine entry signals."""
         orders = []
 
         # Get data and generate crossovers
-        data = self.broker.get_candles(self.instrument, granularity="1h", count=300)
+        #data = self.broker.get_candles(self.instrument, granularity="1h", count=300)
         if len(data) < 300:
             # Not ready to trade yet
             return None
