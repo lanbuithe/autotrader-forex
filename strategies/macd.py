@@ -69,7 +69,7 @@ class SimpleMACD:
             self.MACD_CO_vals[-1] > 0:
                 # Short entry signal detected! Calculate SL and TP prices
                 stop, take = self.generate_exit_levels(signal=-1)
-                 new_order = Order(direction=-1, stop_loss=stop, take_profit=take)
+                new_order = Order(direction=-1, stop_loss=stop, take_profit=take)
 
         else:
             # No trading signal, return a blank Order
