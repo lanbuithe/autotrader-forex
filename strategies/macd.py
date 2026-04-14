@@ -30,61 +30,62 @@ class SimpleMACD:
                            'EMA (200)': {'type': 'MA',
                                          'data': self.ema}
                         }
-def generate_features(self, data):
-    """Updates MACD indicators and saves them to the class attributes."""
-    # Save data for other functions
-    self.data = data
+        
+    def generate_features(self, data):
+        """Updates MACD indicators and saves them to the class attributes."""
+        # Save data for other functions
+        self.data = data
     
-    # 200EMA
-    self.ema = TA.EMA(self.data, self.params['ema_period'])
+        # 200EMA
+        self.ema = TA.EMA(self.data, self.params['ema_period'])
     
-    # MACD
-    self.MACD = TA.MACD(self.data, self.params['MACD_fast'], 
-                        self.params['MACD_slow'], self.params['MACD_smoothing'])
-    self.MACD_CO = indicators.crossover(self.MACD.MACD, self.MACD.SIGNAL)
-    self.MACD_CO_vals = indicators.cross_values(self.MACD.MACD, 
+        # MACD
+        self.MACD = TA.MACD(self.data, self.params['MACD_fast'], 
+                            self.params['MACD_slow'], self.params['MACD_smoothing'])
+        self.MACD_CO = indicators.crossover(self.MACD.MACD, self.MACD.SIGNAL)
+        self.MACD_CO_vals = indicators.cross_values(self.MACD.MACD, 
                                                 self.MACD.SIGNAL,
                                                 self.MACD_CO)
     
-    # Price swings
-    self.swings = indicators.find_swings(self.data)
+        # Price swings
+        self.swings = indicators.find_swings(self.data)
     
     
-def generate_signal(self, data):
-    """Define strategy to determine entry signals."""
-    # Feature calculation
-    self.generate_features(data)
+    def generate_signal(self, data):
+        """Define strategy to determine entry signals."""
+        # Feature calculation
+        self.generate_features(data)
     
-    # Look for entry signals (index -1 for the latest data)
-    if self.data.Close.values[-1] > self.ema[-1] and \
-        self.MACD_CO[-1] == 1 and \
-        self.MACD_CO_vals[-1] < 0:
-            # Long entry signal detected! Calculate SL and TP prices
-            stop, take = self.generate_exit_levels(signal=1)
-            new_order = Order(direction=1, stop_loss=stop, take_profit=take)
+        # Look for entry signals (index -1 for the latest data)
+        if self.data.Close.values[-1] > self.ema[-1] and \
+            self.MACD_CO[-1] == 1 and \
+            self.MACD_CO_vals[-1] < 0:
+                # Long entry signal detected! Calculate SL and TP prices
+                stop, take = self.generate_exit_levels(signal=1)
+                new_order = Order(direction=1, stop_loss=stop, take_profit=take)
             
-    elif self.data.Close.values[-1] < self.ema[-1] and \
-        self.MACD_CO[-1] == -1 and \
-        self.MACD_CO_vals[-1] > 0:
-            # Short entry signal detected! Calculate SL and TP prices
-            stop, take = self.generate_exit_levels(signal=-1)
-            new_order = Order(direction=-1, stop_loss=stop, take_profit=take)
+        elif self.data.Close.values[-1] < self.ema[-1] and \
+            self.MACD_CO[-1] == -1 and \
+            self.MACD_CO_vals[-1] > 0:
+                # Short entry signal detected! Calculate SL and TP prices
+                stop, take = self.generate_exit_levels(signal=-1)
+                 new_order = Order(direction=-1, stop_loss=stop, take_profit=take)
 
-    else:
-        # No trading signal, return a blank Order
-        new_order = Order()
+        else:
+            # No trading signal, return a blank Order
+            new_order = Order()
     
-    return new_order
+        return new_order
 
-def generate_exit_levels(self, signal):
-    """Function to determine stop loss and take profit prices."""
-    RR = self.params['RR']
-    if signal == 1:
-        # Long signal
-        stop = self.swings.Lows[-1]
-        take = self.data.Close[-1] + RR*(self.data.Close[-1] - stop)
-    else:
-        # Short signal
-        stop = self.swings.Highs[-1]
-        take = self.data.Close[-1] - RR*(stop - self.data.Close[-1])
-    return stop, take
+    def generate_exit_levels(self, signal):
+        """Function to determine stop loss and take profit prices."""
+        RR = self.params['RR']
+        if signal == 1:
+            # Long signal
+            stop = self.swings.Lows[-1]
+            take = self.data.Close[-1] + RR*(self.data.Close[-1] - stop)
+        else:
+            # Short signal
+            stop = self.swings.Highs[-1]
+            take = self.data.Close[-1] - RR*(stop - self.data.Close[-1])
+        return stop, take
