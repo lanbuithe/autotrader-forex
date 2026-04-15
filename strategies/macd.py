@@ -57,14 +57,14 @@ class SimpleMACD:
         self.generate_features(data)
     
         # Look for entry signals (index -1 for the latest data)
-        if self.data.Close.values[-1] > self.ema.iloc[-1] and \
-            self.MACD_CO[-1] == 1 and \
+        if self.data.Close.values[-1] > self.ema[-1] and \
+            self.MACD_CO.iloc[-1] == 1 and \
             self.MACD_CO_vals[-1] < 0:
                 # Long entry signal detected! Calculate SL and TP prices
                 stop, take = self.generate_exit_levels(signal=1)
                 new_order = Order(direction=1, stop_loss=stop, take_profit=take)
             
-        elif self.data.Close.values[-1] < self.ema.iloc[-1] and \
+        elif self.data.Close.values[-1] < self.ema[-1] and \
             self.MACD_CO[-1] == -1 and \
             self.MACD_CO_vals[-1] > 0:
                 # Short entry signal detected! Calculate SL and TP prices
