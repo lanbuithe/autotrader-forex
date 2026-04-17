@@ -14,4 +14,4 @@ PARAMETERS:                     # strategy parameters
   # Exit level parameters
   RR: 1.5
 
-WATCHLIST: ['EUR_USD', 'AUD_USD', 'GBP_USD', 'USD_CAD', 'USD_JPY']
+WATCHLIST: ['USD_CHF', 'EUR_USD', 'AUD_USD', 'GBP_USD', 'USD_CAD', 'USD_JPY']
