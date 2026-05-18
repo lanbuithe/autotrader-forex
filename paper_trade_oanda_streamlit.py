@@ -3,6 +3,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime
 import os
 import urllib3
+from concurrent.futures import ThreadPoolExecutor
 
 def trade():
     # Create AutoTrader instance, configure it, and run paper mode
@@ -68,6 +69,13 @@ def start_scheduler():
     #scheduler.add_job(stop_active_bot, 'interval', minutes=15)
     scheduler.add_job(scrap, 'interval', hours=1)
     scheduler.start()
-
+    
+def auto_trade():
+    # Create a thread pool with 1 workers
+    with ThreadPoolExecutor(max_workers=1) as executor:
+    # Submit two tasks to run in parallel
+    executor.submit(trade)
+    
 if __name__ == "__main__":
-    start_scheduler()
+    #start_scheduler()
+    auto_trade()
