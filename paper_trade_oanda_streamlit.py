@@ -15,11 +15,11 @@ def trade():
                 notification_provider="telegram",
                 home_currency="CAD",
                 allow_dancing_bears=True,
-                show_plot=True,
+                #show_plot=True,
                 allow_duplicate_bars=True)
     
     at.add_strategy("ema_crossover")
-    #at.add_strategy("long_ema_crossover")
+    at.add_strategy("long_ema_crossover")
     at.add_strategy("macd")
     #at.add_strategy("supertrend")
     
@@ -66,7 +66,7 @@ def start_scheduler():
     # interval hours, minutes, seconds
     scheduler.add_job(trade, 'interval', hours=1)
     #scheduler.add_job(stop_active_bot, 'interval', minutes=15)
-    scheduler.add_job(scrap, 'interval', hours=2)
+    scheduler.add_job(scrap, 'interval', hours=1)
     scheduler.start()
 
 if __name__ == "__main__":
