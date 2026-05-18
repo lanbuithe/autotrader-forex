@@ -73,8 +73,8 @@ def start_scheduler():
 def auto_trade():
     # Create a thread pool with 1 workers
     with ThreadPoolExecutor(max_workers=1) as executor:
-    # Submit two tasks to run in parallel
-    executor.submit(trade)
+        # Submit two tasks to run in parallel
+        executor.submit(trade)
     
 if __name__ == "__main__":
     #start_scheduler()
