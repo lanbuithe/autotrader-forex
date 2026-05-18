@@ -39,13 +39,13 @@ class LongEMAcrossOver:
         signal = 0
         if len(current_position) == 0:
             # Not currently in any position, okay to enter long
-            if self.crossovers[i] == 1:
+            if self.crossovers.iloc[-1] == 1:
                 # Fast EMA has crossed above slow EMA, enter long
                 order = Order(direction=1)
                 orders.append(order)
         else:
             # Already in a position, only look for long exits
-            if self.crossovers[i] == -1:
+            if self.crossovers.iloc[-1] == -1:
                 net_position = current_position[self.instrument].net_position
                 order = Order(direction=-1, size=-net_position)
                 orders.append(order)
