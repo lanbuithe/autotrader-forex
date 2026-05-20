@@ -5,11 +5,11 @@ from autotrader.indicators import crossover
 
 
 class LongEMAcrossOver:
-    """EMA Crossover example strategy."""
+    """Long EMA Crossover example strategy."""
 
     def __init__(self, parameters, data, instrument, broker, **kwargs):
         """Define all indicators used in the strategy."""
-        self.name = "Strategy name"
+        self.name = "Long EMA Crossover Strategy"
         self.data = data
         self.params = parameters
         self.instrument = instrument
